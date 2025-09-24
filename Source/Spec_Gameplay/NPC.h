@@ -64,4 +64,10 @@ private:
 
 	UPROPERTY()
 	bool bIsWaitingForPlayer;
+
+	UPROPERTY(EditAnywhere)
+	TSubclassOf<AActor> PointerClass;
+
+	UPROPERTY()
+	AActor* Pointer;
 };

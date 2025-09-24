@@ -1,8 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "QuestItem.h"
 #include "NPC.h"
+#include "QuestItem.h"
 #include "Components/SphereComponent.h"
 #include "Kismet/GameplayStatics.h"
 
@@ -53,12 +53,16 @@ void ANPC::AssignQuest(TSubclassOf<AActor> Target, FVector Location, TSubclassOf
 
 void ANPC::WaitPlayerReturn()
 {
+	Pointer->SetActorLocation(GetActorLocation());
+
 	bIsWaitingForPlayer = true;
 	Trigger->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 }
 
 void ANPC::CompleteQuest()
 {
+	Pointer->Destroy();
+
 	Quest.bIsQuestActive = false;
 	bIsWaitingForPlayer = false;
 	Trigger->SetCollisionEnabled(ECollisionEnabled::NoCollision);
@@ -67,6 +71,12 @@ void ANPC::CompleteQuest()
 
 void ANPC::StartQuest()
 {
+	Pointer = GetWorld()->SpawnActor<AActor>(
+		PointerClass,
+		Quest.TargetLocation,
+		FRotator::ZeroRotator
+	);
+
 	FActorSpawnParameters spawnParams;
 	//spawnParams.Name = MakeUniqueObjectName(GetWorld(), Quest.Target, FName("QuestTarget"));
 	spawnParams.Owner = this;
