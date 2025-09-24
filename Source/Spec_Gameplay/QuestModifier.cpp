@@ -6,7 +6,7 @@
 // Sets default values
 AQuestModifier::AQuestModifier()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 }
@@ -15,7 +15,7 @@ AQuestModifier::AQuestModifier()
 void AQuestModifier::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 }
 
 // Called every frame
@@ -25,7 +25,7 @@ void AQuestModifier::Tick(float DeltaTime)
 
 }
 
-void AQuestModifier::ActivateModifier(FVector Location, AActor* Target)
+void AQuestModifier::ActivateModifier(FVector Location, AActor* Target, ANPC* Giver)
 {
 }
 

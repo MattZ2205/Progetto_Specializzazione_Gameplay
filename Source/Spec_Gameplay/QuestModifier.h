@@ -6,6 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "QuestModifier.generated.h"
 
+class ANPC;
+
 UCLASS(Abstract)
 class SPEC_GAMEPLAY_API AQuestModifier : public AActor
 {
@@ -15,7 +17,7 @@ public:
 	// Sets default values for this actor's properties
 	AQuestModifier();
 
-	virtual void ActivateModifier(FVector Location, AActor* Target);
+	virtual void ActivateModifier(FVector Location, AActor* Target, ANPC* Giver);
 
 private:
 	virtual void StopModifier();

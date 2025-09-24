@@ -2,6 +2,7 @@
 
 #pragma once
 
+#include "QuestItem.h"
 #include "DayManager.h"
 #include "CoreMinimal.h"
 #include "QuestModifier.h"
@@ -16,7 +17,7 @@ class SPEC_GAMEPLAY_API AMOD_TimeOfTheDay : public AQuestModifier
 	GENERATED_BODY()
 
 public:
-	virtual void ActivateModifier(FVector Location, AActor* Target) override;
+	virtual void ActivateModifier(FVector Location, AActor* Target, ANPC* Giver) override;
 
 private:
 	virtual void StopModifier() override;
@@ -34,5 +35,8 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	EDayMoment TargetDayMoment;
+
+	UPROPERTY()
+	ANPC* actualGiver;
 
 };

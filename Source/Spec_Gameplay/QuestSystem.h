@@ -2,9 +2,10 @@
 
 #pragma once
 
-#include "QuestModifier.h"
 #include "CoreMinimal.h"
 #include "QuestSystem.generated.h"
+
+class AQuestModifier;
 
 USTRUCT(BlueprintType)
 struct FQuestSystem

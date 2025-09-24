@@ -4,6 +4,7 @@
 
 #include "Components/SphereComponent.h"
 #include "QuestSystem.h"
+#include "QuestModifier.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "NPC.generated.h"
@@ -53,6 +54,9 @@ protected:
 
 public:
 	UPROPERTY()
+	bool bIsWaitingForPlayer;
+
+	UPROPERTY()
 	FQuestSystem Quest;
 
 private:
@@ -61,9 +65,6 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	ENPCType NPCType;
-
-	UPROPERTY()
-	bool bIsWaitingForPlayer;
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<AActor> PointerClass;

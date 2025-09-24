@@ -40,7 +40,6 @@ void ADeliveryNPC::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 void ADeliveryNPC::SetQuestTarget(ANPC* Giver)
 {
 	QuestGiver = Giver;
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Green, "Quest Target Set: " + QuestGiver->GetActorNameOrLabel());
 }
 
 void ADeliveryNPC::NotifyQuestCompletion()
@@ -51,6 +50,6 @@ void ADeliveryNPC::NotifyQuestCompletion()
 
 void ADeliveryNPC::Deliver(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Green, TEXT("Item Delivered!"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Blue, TEXT("Item Delivered!"));
 	NotifyQuestCompletion();
 }

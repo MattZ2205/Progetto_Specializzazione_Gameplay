@@ -16,7 +16,7 @@ public:
 	// Sets default values for this actor's properties
 	AMOD_Ambush();
 
-	virtual void ActivateModifier(FVector Location, AActor* Target) override;
+	virtual void ActivateModifier(FVector Location, AActor* Target, ANPC* Giver) override;
 
 private:
 	UFUNCTION()

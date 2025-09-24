@@ -20,7 +20,6 @@ AEnemy::AEnemy()
 void AEnemy::SetQuestTarget(ANPC* Giver)
 {
 	QuestGiver = Giver;
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Green, "Quest Target Set: " + QuestGiver->GetActorNameOrLabel());
 }
 
 void AEnemy::NotifyQuestCompletion()
@@ -31,7 +30,7 @@ void AEnemy::NotifyQuestCompletion()
 
 void AEnemy::Kill(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Green, TEXT("Fight started!"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Orange, TEXT("Fight started!"));
 	bInteracted = true;
 	TriggerSphere->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 }
@@ -51,7 +50,7 @@ void AEnemy::Tick(float DeltaTime)
 	if (bInteracted) TimerImplosion += DeltaTime;
 	if (TimerImplosion >= 5.f)
 	{
-		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Green, TEXT("Enemy Imploded!"));
+		if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Orange, TEXT("Enemy Imploded!"));
 		NotifyQuestCompletion();
 	}
 }

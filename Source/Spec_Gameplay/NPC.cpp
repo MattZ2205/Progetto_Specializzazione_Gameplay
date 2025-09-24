@@ -66,7 +66,7 @@ void ANPC::CompleteQuest()
 	Quest.bIsQuestActive = false;
 	bIsWaitingForPlayer = false;
 	Trigger->SetCollisionEnabled(ECollisionEnabled::NoCollision);
-	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Green, TEXT("Quest Completed!"));
+	if (GEngine) GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Blue, TEXT("Quest Completed!"));
 }
 
 void ANPC::StartQuest()
@@ -101,14 +101,14 @@ void ANPC::StartQuest()
 		FRotator::ZeroRotator,
 		spawnParams
 	);
-	if (Modifier) Modifier->ActivateModifier(Quest.TargetLocation, Target);
+	if (Modifier) Modifier->ActivateModifier(Quest.TargetLocation, Target, this);
 
 	if (GEngine)
 	{
-		GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Green, Modifier->GetActorNameOrLabel());
-		GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Green, Target->GetActorNameOrLabel());
-		GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Green, Quest.TargetLocation.ToString());
-		GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Green, GetActorNameOrLabel());
+		GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Magenta, Modifier->GetActorNameOrLabel());
+		GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Magenta, Target->GetActorNameOrLabel());
+		GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Magenta, Quest.TargetLocation.ToString());
+		GEngine->AddOnScreenDebugMessage(-1, 9999.9f, FColor::Magenta, GetActorNameOrLabel());
 	}
 
 	Trigger->SetCollisionEnabled(ECollisionEnabled::NoCollision);

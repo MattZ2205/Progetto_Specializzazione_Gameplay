@@ -38,7 +38,6 @@ public:
 	UPROPERTY(EditAnywhere)
 	class USphereComponent* TriggerSphere;
 
-private:
 	UPROPERTY()
 	ANPC* QuestGiver;
 

@@ -15,7 +15,7 @@ AMOD_Ambush::AMOD_Ambush()
 	Trigger->OnComponentBeginOverlap.AddDynamic(this, &AMOD_Ambush::OnAmbushTriggered);
 }
 
-void AMOD_Ambush::ActivateModifier(FVector Location, AActor* Target)
+void AMOD_Ambush::ActivateModifier(FVector Location, AActor* Target, ANPC* Giver)
 {
 	SetActorLocation(Location);
 	actualTarget = Target;
